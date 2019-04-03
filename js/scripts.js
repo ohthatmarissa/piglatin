@@ -1,3 +1,5 @@
+/^[a-zA-Z]+$/
+
 function translate(string) {
   var vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U', 'y', 'Y'];
   var inputArray = string.split(' ');
@@ -8,7 +10,7 @@ function translate(string) {
     console.log(singleWord);
     if(singleWord[0] === 'y') {
       consonantCluster.push(singleWord.shift());
-    } else while(!vowels.includes(singleWord[0])) {
+    } else while(!vowels.includes(singleWord[0]) && /^[a-zA-Z]+$/.test(singleWord[0])) {
       if(singleWord[0] === 'q' && singleWord[1] === 'u') {
         consonantCluster.push(singleWord.shift());
         consonantCluster.push(singleWord.shift());
