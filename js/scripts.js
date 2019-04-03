@@ -1,7 +1,6 @@
 function translate(string) {
   var vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U', 'y', 'Y'];
   var inputArray = string.split(' ');
-  console.log(inputArray);
   inputArray = inputArray.map(function(input) {
     var consonantCluster = ['-'];
     var singleWord = input.split('');
