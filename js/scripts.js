@@ -1,20 +1,25 @@
 function translate(string) {
-  var inputArray = string.split('');
-  var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-  var consonantCluster = ['-'];
-  if(inputArray[0]=== 'y') {
-    consonantCluster.push(inputArray.shift());
-  } else while(!vowels.includes(inputArray[0])) {
-    if(inputArray[0] === 'q' && inputArray[1] === 'u') {
-      consonantCluster.push(inputArray.shift());
-      consonantCluster.push(inputArray.shift());
-    } else {
-      consonantCluster.push(inputArray.shift());
+  var vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U', 'y', 'Y'];
+  var inputArray = string.split(' ');
+  console.log(inputArray);
+  inputArray = inputArray.map(function(input) {
+    var consonantCluster = ['-'];
+    var singleWord = input.split('');
+    console.log(singleWord);
+    if(singleWord[0] === 'y') {
+      consonantCluster.push(singleWord.shift());
+    } else while(!vowels.includes(singleWord[0])) {
+      if(singleWord[0] === 'q' && singleWord[1] === 'u') {
+        consonantCluster.push(singleWord.shift());
+        consonantCluster.push(singleWord.shift());
+      } else {
+        consonantCluster.push(singleWord.shift());
+      }
     }
-  }
-  string = inputArray.join('') + consonantCluster.join('');
-  string = string.concat('ay');
-  return string;
+    input = singleWord.join('') + consonantCluster.join('');
+    return input.concat('ay');
+  });
+  return inputArray.join(' ');
 }
 
 
