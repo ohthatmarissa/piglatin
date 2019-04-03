@@ -1,8 +1,10 @@
 function translate(string) {
   var inputArray = string.split('');
-  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
   var consonantCluster = ['-'];
-  while(!vowels.includes(inputArray[0])) {
+  if(inputArray[0]=== 'y') {
+    consonantCluster.push(inputArray.shift());
+  } else while(!vowels.includes(inputArray[0])) {
     if(inputArray[0] === 'q' && inputArray[1] === 'u') {
       consonantCluster.push(inputArray.shift());
       consonantCluster.push(inputArray.shift());
