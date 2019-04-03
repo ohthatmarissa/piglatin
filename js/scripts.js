@@ -1,4 +1,5 @@
 function translate(string) {
+  string = string.concat("-ay");
   return string;
 };
 
